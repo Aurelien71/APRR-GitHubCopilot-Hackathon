@@ -16,27 +16,32 @@ namespace Repositories
 
         public void AddCar(CarEntity car)
         {
-            throw new NotImplementedException();
+            //Réalise l'ajout d'une voiture
+            _dbContext.Cars.Add(car);
         }
 
         public void DeleteCar(int id)
         {
-            throw new NotImplementedException();
+            //Réalise la suppression d'une voiture
+            var car = _dbContext.Cars.Find(id);
         }
 
         public IEnumerable<CarEntity> GetAllCars()
         {
-            throw new NotImplementedException();
+            //Récupère toutes les voitures
+            return _dbContext.Cars.ToList();
         }
 
         public CarEntity GetCarById(int id)
         {
-            throw new NotImplementedException();
+            //Récupère une voiture par son id
+            return _dbContext.Cars.Find(id) ?? throw new Exception("Car not found");
         }
 
         public void UpdateCar(CarEntity car)
         {
-            throw new NotImplementedException();
+            //Modifications d'une voiture
+            _dbContext.Cars.Update(car);
         }
     }
 }
